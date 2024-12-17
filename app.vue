@@ -60,6 +60,33 @@
 </template>
 
 <script setup>
+
+useHead({
+  title: 'Working days calculator',
+  meta: [
+    { name: 'description', content: 'Calculate working days including holidays and personal time off.' },
+    { name: 'keywords', content: 'working days, holidays, personal time off, calculator' },
+    { name: 'author', content: 'Miroslav Švarc' },
+    { name: 'robots', content: 'index, follow' },
+    { name: 'googlebot', content: 'index, follow' },
+  ],
+  link: [
+    { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+  ],
+})
+
+useSeoMeta({
+  title: 'Working days calculator',
+  ogTitle: 'Working days calculator',
+  description: 'Calculate working days including holidays and personal time off.',
+  ogDescription: 'Calculate working days including holidays and personal time off.',
+  ogImage: '/favicon.ico',
+  ogUrl: 'https://workingdays.svarc.dev',
+  twitterCard: 'summary',
+  twitterTitle: 'Working days calculator',
+  twitterDescription: 'Calculate working days including holidays and personal time off.',
+})
+
 import { ref, computed, watch } from 'vue'
 import { adjustForWeekendHolidays } from './utils/publicHolidaysCalculations'
 import { getCzechHolidaysForYear, getSlovakHolidaysForYear } from './constants/holidays'
