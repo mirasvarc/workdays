@@ -3,5 +3,16 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
   css: ['~/assets/css/main.css'],
-  modules: ['@nuxtjs/tailwindcss', '@nuxt/icon']
+  modules: ['@nuxtjs/tailwindcss', '@nuxt/icon', '@nuxt/scripts'],
+
+  scripts: {
+    registry: {
+      googleAnalytics: {
+        id: 'G-MZBP79JPH1',
+      }
+    }
+  }
+  
+
+
 })
