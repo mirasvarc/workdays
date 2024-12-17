@@ -65,13 +65,14 @@ useHead({
   title: 'Working days calculator',
   meta: [
     { name: 'description', content: 'Calculate working days including holidays and personal time off.' },
-    { name: 'keywords', content: 'working days, holidays, personal time off, calculator' },
+    { name: 'keywords', content: 'working days, holidays, personal time off, calculator, pracovní dny, pracovní doba, pracovní volno, kalkulačka pracovních dní, pracovni dny, pracovni doba, kalkulacka pracovnih dni' },
     { name: 'author', content: 'Miroslav Švarc' },
     { name: 'robots', content: 'index, follow' },
     { name: 'googlebot', content: 'index, follow' },
   ],
   link: [
-    { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+    { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+    { rel: 'canonical', href: 'https://workingdays.svarc.dev' },
   ],
 })
 
@@ -82,6 +83,7 @@ useSeoMeta({
   ogDescription: 'Calculate working days including holidays and personal time off.',
   ogImage: '/favicon.ico',
   ogUrl: 'https://workingdays.svarc.dev',
+  ogType: 'website',
   twitterCard: 'summary',
   twitterTitle: 'Working days calculator',
   twitterDescription: 'Calculate working days including holidays and personal time off.',
