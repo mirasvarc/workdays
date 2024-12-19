@@ -41,7 +41,7 @@
           <div v-for="holiday in monthHolidays" :key="holiday.name">
             - {{ holiday.name }} ({{ holiday.day }}.{{ holiday.month }})
             <span v-if="holiday.isWeekend" class="text-red-500">
-              (Falls on weekend - observed on {{ holiday.alternateDay.day }}.{{ holiday.alternateDay.month }})
+              (Falls on weekend)
             </span>
           </div>
         </div>
@@ -173,10 +173,14 @@ const weekendDays = computed(() => {
 const workingDays = computed(() => {
   const [year, month] = selectedDate.value.split('-')
   const adjustedHolidays = monthHolidays.value.filter(holiday => !holiday.isWeekend).length
-  const alternateHolidaysInMonth = monthHolidays.value
-    .filter(holiday => holiday.isWeekend &&
-      holiday.alternateDay.month === parseInt(month))
-    .length
+
+  let alternateHolidaysInMonth = 0
+  if (selectedCountry.value !== 'czech') {
+    alternateHolidaysInMonth = monthHolidays.value
+      .filter(holiday => holiday.isWeekend &&
+        holiday.alternateDay.month === parseInt(month))
+      .length
+  }
 
   return totalDays.value - weekendDays.value - adjustedHolidays -
     alternateHolidaysInMonth - parseInt(daysOff.value || 0)
