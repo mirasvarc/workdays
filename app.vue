@@ -93,6 +93,8 @@ import { ref, computed, watch } from 'vue'
 import { adjustForWeekendHolidays } from './utils/publicHolidaysCalculations'
 import { getCzechHolidaysForYear, getSlovakHolidaysForYear } from './constants/holidays'
 
+const { proxy } = useScriptGoogleAnalytics()
+
 // State
 const selectedDate = ref(new Date().toISOString().slice(0, 7))
 const daysOff = ref(0)
@@ -113,6 +115,15 @@ watch([selectedDate, daysOff], () => {
     selectedDate: selectedDate.value,
     daysOff: daysOff.value
   }))
+  proxy.gtag('event', 'date_selected')
+})
+
+watch(selectedCountry, () => {
+  proxy.gtag('event', 'country_selected')
+})
+
+watch(daysOff, () => {
+  proxy.gtag('event', 'days_off_selected')
 })
 
 const getHolidaysForYear = (year) => {
@@ -207,6 +218,8 @@ const exportData = () => {
   a.click()
   document.body.removeChild(a)
   URL.revokeObjectURL(url)
+
+  proxy.gtag('event', 'export_data')
 }
 </script>
 
