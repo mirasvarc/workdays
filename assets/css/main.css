@@ -1,9 +1,2 @@
-.alert {
-    background-color: #f0f0f0;
-    padding: 10px;
-    border-radius: 5px;
-}
-
-.alert-info {
-    background-color: #ffc531;
-}
+@import "tailwindcss";
+@import "@nuxt/ui";
